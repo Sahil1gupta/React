@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <style>
+    /* Add your styles here */
+  </style>
+</head>
+<body>
+
+  <div class="password-generator">
+    <h1>Password Generator</h1>
+    <div class="password-input">
+      <input type="text" id="password" placeholder="Generated Password" readonly>
+      <button onclick="copyToClipboard()">Copy</button>
+    </div>
+    <div class="slider-container">
+      <label for="length">Length:</label>
+      <input type="range" id="length" min="6" max="100" value="10">
+      <span id="lengthValue">10</span>
+    </div>
+    <button onclick="generatePassword()">Generate Password</button>
+  </div>
+
+  <script>
+    function generatePassword() {
+      const length = document.getElementById('length').value;
+      // Your password generation logic here
+      // Update the generated password in the input field
+      const passwordInput = document.getElementById('password');
+      passwordInput.value = 'YourGeneratedPassword';
+    }
+
+    function copyToClipboard() {
+      const passwordInput = document.getElementById('password');
+      passwordInput.select();
+      document.execCommand('copy');
+      alert('Password copied to clipboard!');
+    }
+
+    document.getElementById('length').addEventListener('input', function() {
+      const lengthValue = document.getElementById('lengthValue');
+      lengthValue.textContent = this.value;
+    });
+  </script>
+
+</body>
+</html>

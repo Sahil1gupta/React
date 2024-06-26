@@ -1,0 +1,24 @@
+#1 phele app folder banane ka usme store.js banane ka aur ye store.js as global truth source rahega.
+Store:
+
+The store is a single JavaScript object that holds the entire state tree of your application.
+It is created using the createStore function from Redux or configureStore function from Redux Toolkit.
+The store is responsible for dispatching actions to the reducers, maintaining the state tree, and allowing components to subscribe to updates to the state.
+
+
+#2 ab features  krke folder banane ka src me hi
+usme todo,login,product aise aise features honge.to featues ke andar uska folder banayege jaise yaha todo banaya hai. aur ab uske andar todoSlice.js banaya hai
+
+Reducers:
+
+Reducers are pure functions that specify how the state should be updated in response to dispatched actions.
+Each reducer takes the current state and an action as arguments and returns the new state based on that action.
+Reducers are typically organized into slices, where each slice manages a specific part of the state tree.
+Slices:
+
+Slices are a concept introduced by Redux Toolkit to help organize Redux code into smaller, more manageable pieces.
+A slice encapsulates the logic for managing a specific piece of state in your application.
+It typically includes the initial state, reducer functions, and action creators for that specific part of the state.
+Slices are created using the createSlice function provided by Redux Toolkit.
+Slices are combined to form the root reducer, which is then used to create the Redux store.
+In summary, the store holds the entire state of your application, reducers specify how the state should be updated, and slices help organize the logic for managing specific parts of the state. Reducers defined within slices are combined into the root reducer, which is used to create the Redux store. Components interact with the store by dispatching actions, which are processed by the reducers to update the state accordingly.

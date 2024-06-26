@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="todo-app">
+    <h1>Todo App</h1>
+    <ul id="todo-list">
+      <!-- Todo items will be dynamically generated here -->
+    </ul>
+  </div>
+
+  <script >
+    document.addEventListener('DOMContentLoaded', function() {
+  const todoList = document.getElementById('todo-list');
+
+  // Initial todo data
+  let todos = [
+    { id: 1, text: 'Learn JavaScript' },
+    { id: 2, text: 'Build a todo app' },
+    { id: 3, text: 'Deploy the app' }
+  ];
+
+  // Render todos
+  function renderTodos() {
+    todoList.innerHTML = '';
+    todos.forEach(todo => {
+      const li = document.createElement('li');
+      li.setAttribute('data-id', todo.id);
+      const span = document.createElement('span');
+      span.textContent = todo.text;
+      span.addEventListener('click', handleTodoClick);
+      li.appendChild(span);
+      todoList.appendChild(li);
+    });
+  }
+
+  // Handle todo click event
+  function handleTodoClick(event) {
+  const li = event.target.parentElement;
+  console.log(li)
+  const id = parseInt(li.getAttribute('data-id'));
+  const todo = todos.find(todo => todo.id === id);
+  const input = document.createElement('input');
+  input.value = todo.text;
+  input.addEventListener('blur', () => handleEditBlur(id, input));
+  input.addEventListener('keypress', (e) => handleEditKeyPress(e, id, input));
+  li.innerHTML = '';
+  li.appendChild(input);
+  input.focus();
+}
+
+  // Handle blur event on input field
+  function handleEditBlur(id, input) {
+    const newText = input.value.trim();
+    if (newText !== '') {
+      const todo = todos.find(todo => todo.id === id);
+      todo.text = newText;
+      renderTodos();
+    }
+  }
+
+  // Handle key press event on input field
+//   function handleEditKeyPress(event, id, input) {
+//     console.log(event.key)
+//     if (event.key === 'Enter') {
+//       handleEditBlur(id, input);
+//     }
+//   }
+
+  // Initial rendering
+  renderTodos();
+});
+
+  </script>
+</body>
+</html>
