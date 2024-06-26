@@ -1,0 +1,1 @@
+pehle context vali file me createContext banaya userContext naam ka  ab ye context apne ko provider deta hai jisse hum log wrap krege to jo bhi component iske andar honge vo data ko le sakte h provider ke through

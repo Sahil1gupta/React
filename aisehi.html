@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML ClassList Example</title>
+</head>
+<body>
+    <div id="example-div" class="example-class">This is an example div.</div>
+
+    <script>
+        // Get the HTML element
+        const htmlElement = document.querySelector('html');
+
+        // Log the initial class list of the HTML element
+        console.log("Initial class list:", htmlElement.classList);
+
+        // Add a class to the HTML element
+        htmlElement.classList.add('new-class');
+
+        // Log the updated class list after adding a class
+        console.log("Class list after adding 'new-class':", htmlElement.classList);
+
+        // Remove a class from the HTML element
+        htmlElement.classList.add('example-class');
+
+        // Log the updated class list after removing a class
+        console.log("Class list after removing 'example-class':", htmlElement.classList);
+
+        // Check if a class exists in the class list
+        const containsClass = htmlElement.classList.contains('new-class');
+        console.log("'new-class' exists in class list:", containsClass);
+    </script>
+</body>
+</html>
